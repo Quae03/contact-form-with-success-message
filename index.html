@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Contact form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { 
+      font-size: 11px;
+      text-align: center;
+    }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    @font-face {
+      font-family: customFont;
+      src: url(assets/fonts/Karla-VariableFont_wght.ttf);
+
+    }
+    body {
+      background-color: hsl(148, 38%, 91%);
+      font-family: customFont;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    h1 {
+      margin: 0;
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 50px;
+      margin-bottom: 60px;
+    }
+    input, .message {
+      font-size: 16px;
+      padding: 5px;
+      padding: 15px;
+    }
+    .nameDiv {
+      display: flex;
+      flex: 1;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .innerNameDiv {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .nameLabel {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    #fName, #lName {
+      border: 1px solid grey;
+      border-radius: 8px;
+      height: 20px; 
+    }
+    label:not(.nameLabel) {
+      width: fit-content;
+      margin-bottom: 0.5rem;
+      margin-top: 1rem;
+    }
+    #fName:hover, #lName:hover, #fName:focus, #lName:focus, .email:hover, .email:focus, .message:hover, .message:focus {
+      outline: none; 
+      border: 1.5px solid hsl(169, 82%, 27%); 
+    } 
+    .email {
+      border: 1px solid grey;
+      border-radius: 8px;
+      height: 20px;
+    }
+    .radioDiv {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 5px;
+    }
+    .radioFlex {
+      flex: 1;
+    }
+    .radioDiv .innerRadioDiv1, .radioDiv .innerRadioDiv2 {
+      border-radius: 10px;
+      padding: 15px 15px;
+    }
+    .radioText {
+      display: inline;
+      font-size: 20px;
+      margin: 0;
+      margin-left: 5px;
+    }
+    .message {
+      border: 1px solid grey;
+      border-radius: 8px;
+    }
+    .checkboxDiv {
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    #checkbox {
+      accent-color: hsl(169, 82%, 27%);
+    }
+    .checkboxText {
+      display: inline;
+      margin-left: 10px;
+    }
+    .submit {
+      background-color: hsl(169, 82%, 27%);
+      border: 1px solid hsl(169, 82%, 27%);
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      font-weight: 300;
+      height: 40px;
+      line-height: 10px;
+      margin-top: 15px;
+    }
+    .submit:hover, .submit:focus {
+      outline: none;
+      background-color: hsl(169, 81%, 16%);
+      border: 1px solid hsl(169, 81%, 16%);
+    }
+    .successMessage {
+      display: none;
+      position: fixed;
+      background-color: hsl(171, 35%, 20%);
+      border: 1px solid hsl(171, 35%, 20%);
+      border-radius: 20px;
+      color: white;
+      padding: 15px;
+      animation: success 2s linear;
+    }
+    #successMessage > * {
+      padding: 0;
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+
+    @keyframes success {
+      0% { 
+        scale: 0.1; 
+        opacity: 1;
+      }
+      50% {
+        scale: 1;
+        opacity: 1;
+      }
+      75% { opacity: 1;}
+      100% { opacity: 0; }
+    }
+
+    @media (max-width: 539px) {
+      form {
+        margin-top: 10px;
+      }
+      .radioDiv {
+      flex-direction: column;
+    }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="successMessage" class="successMessage">
+    <h3>Message Sent!</h3>
+    <p>Thanks for completing the form. We'll be in touch soon!</p>
+  </div>
+
+  <form id="myForm" action="#">
+
+  <h1>Contact Us</h1>
+  
+  <div class="nameDiv">
+    <div class="innerNameDiv">
+      <label for="fName" class="nameLabel">First Name</label>
+      <input id="fName" class="nameInp" type="text">
+      <p id="fNameError" style="display: none; color: red;">This field is required</p>
+    </div>
+
+    <div class="innerNameDiv">
+      <label for="lName" class="nameLabel">Last Name</label>   
+      <input id="lName" class="nameInp" type="text"> 
+      <p id="lNameError" style="display: none; color: red;">This field is required</p>
+    </div>
+  </div>
+
+  <label for="email">Email Address</label>
+  <input id="email" class="email" type="text">
+  <p id="emailError" style="display: none; color: red;">Please enter a valid email address</p> 
+
+  <label for="queryType">Query Type</label>
+  <div class="radioDiv">
+    <div class="radioFlex">
+    <div class="innerRadioDiv1">
+      <svg id="radioSvg1" xmlns="http://www.w3.org/2000/svg" width="20" height="18" style="position: relative; top: 3px;" fill="none" viewBox="0 0 20 20"><path fill="#0C7D69" d="M10 .75a9.75 9.75 0 1 0 9.75 9.75A9.76 9.76 0 0 0 10 .75Zm0 18a8.25 8.25 0 1 1 8.25-8.25A8.26 8.26 0 0 1 10 18.75Zm5.25-8.25a5.25 5.25 0 1 1-10.499 0 5.25 5.25 0 0 1 10.499 0Z"/></svg>
+      <input id="radio1" type="radio" value="General Enquiry" name="radio" style="top: -2px;">
+      <p class="radioText">General Enquiry</p>
+    </div>
+    </div>
+    <div class="radioFlex">
+    <div class="innerRadioDiv2">
+      <svg id="radioSvg2" xmlns="http://www.w3.org/2000/svg" width="20" height="18" style="position: relative; top: 3px;" fill="none" viewBox="0 0 20 20"><path fill="#0C7D69" d="M10 .75a9.75 9.75 0 1 0 9.75 9.75A9.76 9.76 0 0 0 10 .75Zm0 18a8.25 8.25 0 1 1 8.25-8.25A8.26 8.26 0 0 1 10 18.75Zm5.25-8.25a5.25 5.25 0 1 1-10.499 0 5.25 5.25 0 0 1 10.499 0Z"/></svg>
+      <input id="radio2" type="radio" value="Support Request" name="radio">
+      <p class="radioText">Support Request</p>
+    </div>
+    </div>
+  </div>
+  <p id="radioError" style="display: none; color: red;">Please select a query type</p>
+
+  <label for="message">Message</label>
+  <textarea rows="3" id="message" class="message" name="message" spellcheck="false"></textarea>
+  <p id="messageError" style="display: none; color: red;">This field is required</p>
+
+  <div class="checkboxDiv">
+    <input id="checkbox" type="checkbox">
+    <p class="checkboxText">I consent to being contacted by the team</p>
+  </div>
+  
+  <p id="checkboxError" style="display: none; color: red;">To submit this form please consent to being contacted</p>
+
+  <input id="submitBtn" class="submit" type="submit" value="Submit">
+  
+  </form>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">Quaelan Sayers</a>.
+  </div>
+  <script>
+    // HTML elements
+    let form = document.getElementById('myForm');
+    let fName = document.getElementById('fName');
+    let lName = document.getElementById('lName');
+    let email = document.getElementById('email');
+    let radioDiv1 = document.querySelector('.innerRadioDiv1')
+    let radioDiv2 = document.querySelector('.innerRadioDiv2')
+    let radio1 = document.getElementById('radio1');
+    let radio2 = document.getElementById('radio2');
+    let radioSvg1 = document.getElementById('radioSvg1');
+    let radioSvg2 = document.getElementById('radioSvg2');
+    let checkbox = document.getElementById('checkbox');
+    let message = document.querySelector('textarea[name="message"]');
+    // errors
+    let fNameError = document.getElementById('fNameError');
+    let lNameError = document.getElementById('lNameError');
+    let emailError = document.getElementById('emailError');
+    let radioError = document.getElementById('radioError');
+    let messageError = document.getElementById('messageError');
+    let checkboxError = document.getElementById('checkboxError');
+    // success message
+    let success = document.getElementById('successMessage');
+
+    // radio checked styling
+    setInterval(function() {
+      if (radio1.checked) {
+        radioDiv1.style.backgroundColor = 'hsl(170, 68%, 82%)';
+        radioDiv1.style.border = '1px solid hsl(169, 82%, 27%)';
+        radio1.style.position = 'absolute';
+        radio1.style.opacity = '0';
+        radioSvg1.style.display = 'inline';
+      } else {
+        radioDiv1.style.backgroundColor = 'white';
+        radioDiv1.style.border = '1px solid grey';
+        radio1.style.position = 'relative';
+        radio1.style.opacity = '1';
+        radioSvg1.style.display = 'none';
+      }
+
+      if (radio2.checked) {
+        radioDiv2.style.backgroundColor = 'hsl(170, 68%, 82%)';
+        radioDiv2.style.border = '1px solid hsl(169, 82%, 27%)';
+        radio2.style.position = 'absolute';
+        radio2.style.opacity = '0';
+        radioSvg2.style.display = 'inline';
+      } else {
+        radioDiv2.style.backgroundColor = 'white';
+        radioDiv2.style.border = '1px solid grey';
+        radio2.style.position = 'relative';
+        radio2.style.opacity = '1';
+        radioSvg2.style.display = 'none';
+      }
+    }, 0.1);
+
+    // prevents form from submitting when enter key is pressed on a radio input
+    form.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' && document.activeElement.type === 'radio') {
+        event.preventDefault(); // prevent form from submitting 
+        document.activeElement.checked = true; // activates radio button on enter
+      }
+    });
+
+    // prevents form from submitting when enter key is pressed on checkbox input
+    form.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' && document.activeElement.type === 'checkbox') {
+        event.preventDefault(); // prevent form from submitting
+        if (document.activeElement.checked === true) { // check if unchecked, uncheck if checked
+          document.activeElement.checked = false;
+        } else {
+          document.activeElement.checked = true;
+        }
+      }
+    });
+
+    // validation functionality
+    form.addEventListener('submit', function(event) {
+      
+      let emailValidation = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
+
+      let isValid = true;
+
+      if (fName.value.length < 2) {
+        event.preventDefault();
+        fName.style.border = '1px solid red';
+        fNameError.style.display = 'block';
+        isValid = false;
+      } else {
+        fName.style.border = '1px solid grey';
+        fNameError.style.display = 'none';
+      }
+      
+      if (lName.value.length < 2) {
+        event.preventDefault();
+        lName.style.border = '1px solid red';
+        lNameError.style.display = 'block';
+        isValid = false;
+      } else {
+        lName.style.border = '1px solid grey';
+        lNameError.style.display = 'none';
+      } 
+
+      if (!emailValidation.test(email.value)) {
+        event.preventDefault();
+        email.style.border = '1px solid red';
+        emailError.style.display = 'block';
+        isValid = false;
+      } else {
+        email.style.border = '1px solid grey';
+        emailError.style.display = 'none';
+      }
+      
+      if (!radio1.checked && !radio2.checked) {
+        event.preventDefault();
+        radioError.style.display = 'block';
+        isValid = false;
+      } else {
+        radioError.style.display = 'none';
+      }
+
+      if (message.value.trim().length === 0) {
+        event.preventDefault();
+        messageError.style.display = 'block';
+        message.style.border = '1px solid red';
+        isValid = false;
+      } else {
+        messageError.style.display = 'none';
+        message.style.border = '1px solid grey';
+      }
+
+      if (!checkbox.checked) {
+        event.preventDefault();
+        checkboxError.style.display = 'block';
+        isValid = false;
+      } else {
+        checkboxError.style.display = 'none';
+      }
+
+      if (isValid) {
+        event.preventDefault();
+        // event.currentTarget.submit(); // send form 
+        fName.value = '';
+        lName.value = '';
+        email.value = '';
+        radio1.checked = false;
+        radio2.checked = false;
+        message.value = '';
+        checkbox.checked = false;
+
+        success.style.display = 'block';
+
+        setTimeout(() => {
+          success.style.display = 'none';  
+        }, 2000);
+      }
+    });
+    
+  </script>
+</body>
+</html>
