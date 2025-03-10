@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            border: 1px solid black;
+            margin-inline: auto;
+            padding: 20px;
+            width: fit-content;
+            margin-top: 3%;
+        }
+        form {
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            gap: 20px;
+            width: 400px;
+        }
+        .grid1 {
+            border: 1px solid red;
+            text-align: center;
+        }
+        .grid4 {
+            border: 1px solid blue;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+        }
+        div div {
+            border: 1px solid grey;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm" action="#">
+        <h1 class="grid1">Form</h1>
+        <div class="grid2">
+            <input type="text">
+            <input type="text">    
+        </div>
+        <div class="grid3"><input type="text"></div>
+        <div class="grid4">
+            <div><input type="radio" class="radio" name="radio" unchecked="true"><p style="display: inline;">General</p></div>
+            <div><input type="radio" class="radio" name="radio" unchecked="true"><p>Support</p></div>
+        </div>
+        <div class="grid5"><textarea name="" id=""></textarea></div>
+        <div class="grid6"><input type="checkbox"><p>Consent to being contacted</p></div>
+        <div class="grid7"><input type="submit" name="" id="submit"></div>
+    </form>
+    <script>
+        document.getElementById('myForm').addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' && document.activeElement.type === 'radio') {
+                event.preventDefault();
+                document.activeElement.checked = true;
+            }
+        });
+    </script>
+</body>
+</html>

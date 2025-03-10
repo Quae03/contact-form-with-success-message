@@ -1,0 +1,155 @@
+.attribution { 
+    text-align: center;
+    font-size: 11px;
+  }
+  .attribution a { color: hsl(228, 45%, 44%); }
+  @font-face {
+    font-family: customFont;
+    src: url(assets/fonts/Karla-VariableFont_wght.ttf);
+  }
+  body {
+    background-color: hsl(148, 38%, 91%);
+    font-family: customFont;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  h1 {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+  }
+  input, .message {
+    font-size: 16px;
+    padding: 5px;
+    padding: 15px;
+  }
+  .nameDiv {
+    display: flex;
+    flex: 1;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .innerNameDiv {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .nameLabel {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  #fName, #lName {
+    border: 1px solid grey;
+    border-radius: 8px;
+    height: 20px; 
+  }
+  label:not(.nameLabel) {
+    width: fit-content;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+  }
+  #fName:hover, #lName:hover, #fName:focus, #lName:focus, .email:hover, .email:focus, .message:hover, .message:focus {
+    outline: none; 
+    border: 1.5px solid hsl(169, 82%, 27%); 
+  } 
+  .email {
+    border: 1px solid grey;
+    border-radius: 8px;
+    height: 20px;
+  }
+  .radioDiv {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 5px;
+  }
+  .radioFlex {
+    flex: 1;
+  }
+  .radioDiv .innerRadioDiv1, .radioDiv .innerRadioDiv2 {
+    border-radius: 10px;
+    padding: 15px 15px;
+  }
+  .radioText {
+    display: inline;
+    font-size: 20px;
+    margin: 0;
+    margin-left: 5px;
+  }
+  .message {
+    border: 1px solid grey;
+    border-radius: 8px;
+  }
+  .checkboxDiv {
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  #checkbox {
+    accent-color: hsl(169, 82%, 27%);
+  }
+  .checkboxText {
+    display: inline;
+    margin-left: 10px;
+  }
+  .submit {
+    background-color: hsl(169, 82%, 27%);
+    border: 1px solid hsl(169, 82%, 27%);
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+    height: 40px;
+    line-height: 10px;
+    margin-top: 15px;
+  }
+  .submit:hover, .submit:focus {
+    outline: none;
+    background-color: hsl(169, 81%, 16%);
+    border: 1px solid hsl(169, 81%, 16%);
+  }
+  .successMessage {
+    display: none;
+    position: fixed;
+    background-color: hsl(171, 35%, 20%);
+    border: 1px solid hsl(171, 35%, 20%);
+    border-radius: 20px;
+    color: white;
+    padding: 15px;
+    animation: success 2s linear;
+  }
+  #successMessage > * {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+
+  @keyframes success {
+    0% { 
+      scale: 0.1; 
+      opacity: 1;
+    }
+    50% {
+      scale: 1;
+      opacity: 1;
+    }
+    75% { opacity: 1;}
+    100% { opacity: 0; }
+  }
+
+  @media (max-width: 539px) {
+    form {
+      margin-top: 10px;
+    }
+    .radioDiv {
+    flex-direction: column;
+  }
+  }
